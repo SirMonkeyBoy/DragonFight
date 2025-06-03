@@ -42,7 +42,7 @@ public class DragonAndCrystalDamage implements Listener {
         }
     }
 
-    // These methods are super ugly but my brain isn't working right now.
+    // These methods are super-ugly but my brain isn't working right now.
 
     @EventHandler
     public void crystalDamage(EntityDamageByEntityEvent event) {
