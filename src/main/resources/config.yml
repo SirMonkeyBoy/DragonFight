@@ -1,6 +1,5 @@
 # true dragon fight still work
 # false disables dragon fight
-Dragon-Fight: true
 Dragon-Deny-Damage-Message: "You can't damage the Ender Dragon before the event."
 Crystal-Deny-Damage-Message: "You can't damage the Ender Crystals before the event."
 Dragon-Fight-Starting-In-Message: "The Ender Dragon Fight will begin in 5 minutes get ready."

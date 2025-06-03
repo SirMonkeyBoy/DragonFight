@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 
 public class Utils {
 
-    public void announcement(Component message) {
+    public static void announcement(Component message) {
         Bukkit.broadcast(Component.text("[").color(NamedTextColor.GOLD)
                 .append(Component.text("Theatria").color(NamedTextColor.DARK_RED))
                 .append(Component.text("] ").color(NamedTextColor.GOLD))
