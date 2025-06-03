@@ -3,7 +3,6 @@ package com.github.sirmonkeyboy.dragonFight.Utils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -57,10 +56,6 @@ public class DragonFightSession {
 
     public void removeParticipant(UUID participant) {
         participants.remove(participant);
-    }
-
-    public List<UUID> getParticipantList() {
-        return List.copyOf(participants);
     }
 
     public void clearParticipants() {
