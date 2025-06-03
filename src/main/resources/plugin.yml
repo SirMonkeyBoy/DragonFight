@@ -1,0 +1,12 @@
+name: DragonFight
+version: '1.0-SNAPSHOT'
+main: com.github.sirmonkeyboy.dragonFight.DragonFight
+api-version: '1.21'
+prefix: DragonFight
+load: STARTUP
+commands:
+  EnableDragonFight:
+    permission: DragonFight.commands.EnableDragonFight
+permissions:
+  DragonFight.commands.EnableDragonFight:
+    default: op
