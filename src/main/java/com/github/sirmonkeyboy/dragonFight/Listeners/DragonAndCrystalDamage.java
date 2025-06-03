@@ -24,9 +24,7 @@ public class DragonAndCrystalDamage implements Listener {
             return;
         }
 
-        boolean isDragon = event.getEntity() instanceof EnderDragon;
-
-        if (!isDragon) return;
+        if (!(event.getEntity() instanceof EnderDragon)) return;
 
         event.setCancelled(true);
 
@@ -42,9 +40,8 @@ public class DragonAndCrystalDamage implements Listener {
         if (configManager.getIsDragonFightEnabled()) {
             return;
         }
-        boolean isCrystal = event.getEntity() instanceof EnderCrystal;
 
-        if (!isCrystal) return;
+        if (!(event.getEntity() instanceof EnderCrystal)) return;
 
         event.setCancelled(true);
 
