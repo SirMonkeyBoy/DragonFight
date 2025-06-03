@@ -4,6 +4,7 @@ main: com.github.sirmonkeyboy.dragonFight.DragonFight
 api-version: '1.21'
 prefix: DragonFight
 load: STARTUP
+authors: [ NessXXIII, SirMonkeyBoy ]
 commands:
   EnableDragonFight:
     permission: DragonFight.commands.EnableDragonFight
