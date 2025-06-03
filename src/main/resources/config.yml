@@ -3,5 +3,6 @@ Crystal-Deny-Damage-Message: "You can't damage the Ender Crystals before the eve
 Dragon-Fight-Starting-In-Message: "The Ender Dragon Fight will begin in 5 minutes get ready."
 Dragon-Fight-Started-Message: "The Ender Dragon Fight has started."
 Dragon-Death-Message: "The Dragon has been slain."
+Dragon-Fight-Participation-Message: "For you participation you have been rewarded 12000 xp."
 # 1000 ticks = 1 minute
 Dragon-Fight-Start-Delay: 6000

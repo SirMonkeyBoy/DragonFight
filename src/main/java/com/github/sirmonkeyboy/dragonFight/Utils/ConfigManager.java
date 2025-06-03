@@ -12,6 +12,7 @@ public class ConfigManager {
     private String dragonDeathMessage;
     private String dragonFightStartingInMessage;
     private String dragonFightStartedMessage;
+    private String dragonFightParticipationMessage;
     private int dragonFightStartDelay;
 
     public ConfigManager(DragonFight plugin) {
@@ -31,6 +32,7 @@ public class ConfigManager {
         dragonFightStartingInMessage = plugin.getConfig().getString("Dragon-Fight-Starting-In-Message", "The Ender Dragon Fight will be starting in 5 minutes get ready.");
         dragonFightStartedMessage = plugin.getConfig().getString("Dragon-Fight-Started-Message", "The Ender Dragon Fight has started.");
         dragonDeathMessage = plugin.getConfig().getString("Dragon-Death-Message", "The Ender Dragon has been slain.");
+        dragonFightParticipationMessage = plugin.getConfig().getString("Dragon-Fight-Participation-Message", "For you participation you have been rewarded 12000 xp.");
         dragonFightStartDelay = plugin.getConfig().getInt("Dragon-Fight-Start-Delay", 6000);
     }
 
@@ -52,6 +54,10 @@ public class ConfigManager {
 
     public String getDragonDeathMessage() {
         return dragonDeathMessage;
+    }
+
+    public String getDragonFightParticipationMessage() {
+        return dragonFightParticipationMessage;
     }
 
     public int getDragonFightStartDelay() {

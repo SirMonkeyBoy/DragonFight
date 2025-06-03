@@ -18,7 +18,7 @@ public final class DragonFight extends JavaPlugin {
         this.saveDefaultConfig();
 
         ConfigManager configManager = new ConfigManager(this);
-        DragonFightSession dragonFightSession = new DragonFightSession(configManager);
+        DragonFightSession dragonFightSession = new DragonFightSession(this, configManager);
 
         Objects.requireNonNull(getCommand("DragonFight")).setExecutor(new DragonFightCommand(this, configManager, dragonFightSession));
 
