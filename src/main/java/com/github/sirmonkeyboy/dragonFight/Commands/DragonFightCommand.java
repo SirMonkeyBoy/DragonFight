@@ -42,6 +42,10 @@ public class DragonFightCommand implements CommandExecutor, TabCompleter {
             case 1 -> {
                 switch (args[0].toLowerCase()) {
                     case "start" -> {
+                        if (dragonFightSession.isActive()) {
+                            commandSender.sendMessage("Dragon fight is already active.");
+                            return true;
+                        }
                         Utils.announcement(Component.text(configManager.getDragonFightStartingInMessage()).color(NamedTextColor.WHITE));
                         new BukkitRunnable() {
                             @Override
