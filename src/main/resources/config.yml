@@ -6,3 +6,7 @@ Dragon-Death-Message: "The Dragon has been slain."
 Dragon-Fight-Participation-Message: "For you participation you have been rewarded 12000 xp."
 # 1000 ticks = 1 minute
 Dragon-Fight-Start-Delay: 6000
+
+Dragon-Fight-Rewards:
+  - "exp give %Player% 12000"
+  - "eco give %Player% 2000"
