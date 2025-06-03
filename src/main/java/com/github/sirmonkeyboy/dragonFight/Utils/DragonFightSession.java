@@ -5,6 +5,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DragonFightSession {
     private final ConfigManager configManager;
@@ -19,7 +20,7 @@ public class DragonFightSession {
         this.isActive = false;
         this.startTime = 0;
         this.endTime = 0;
-        this.participants = Set.of();
+        this.participants = ConcurrentHashMap.newKeySet();
     }
 
     public boolean isActive() {
