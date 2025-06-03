@@ -3,7 +3,6 @@ package com.github.sirmonkeyboy.dragonFight;
 import com.github.sirmonkeyboy.dragonFight.Commands.EnableDragonFight;
 import com.github.sirmonkeyboy.dragonFight.Listeners.DragonAndCrystalDamage;
 import com.github.sirmonkeyboy.dragonFight.Utils.ConfigManager;
-
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +19,7 @@ public final class DragonFight extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("EnableDragonFight")).setExecutor(new EnableDragonFight(this, configManager));
 
-        Bukkit.getPluginManager().registerEvents(new DragonAndCrystalDamage(this, configManager), this);
+        Bukkit.getPluginManager().registerEvents(new DragonAndCrystalDamage(configManager), this);
 
         getLogger().info("Dragon Fight started");
     }
