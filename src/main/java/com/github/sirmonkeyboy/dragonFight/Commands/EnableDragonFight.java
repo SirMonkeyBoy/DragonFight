@@ -37,9 +37,7 @@ public class EnableDragonFight implements TabExecutor {
 
         boolean enabled = Boolean.parseBoolean(input);
 
-        plugin.getConfig().set("Dragon-Fight", enabled);
-        plugin.saveConfig();
-        configManager.reloadConfigManager(sender);
+        configManager.setDragonFight(sender, input);
 
         sender.sendMessage("Dragon fight has been " + (enabled ? "enabled" : "disabled") + ".");
         return true;
