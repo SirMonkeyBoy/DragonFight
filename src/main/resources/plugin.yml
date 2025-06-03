@@ -7,6 +7,12 @@ load: STARTUP
 commands:
   EnableDragonFight:
     permission: DragonFight.commands.EnableDragonFight
+    permission-message: "You do not have permission to use this command"
+  StartDragonFightEvent:
+    permission: DragonFight.commands.StartDragonFight
+    permission-message: "You do not have permission to use this command"
 permissions:
   DragonFight.commands.EnableDragonFight:
+    default: op
+  DragonFight.commands.StartDragonFight:
     default: op
