@@ -5,6 +5,8 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
 
+import java.util.List;
+
 public class ConfigManager {
     private final DragonFight plugin;
     private String dragonDenyDamageMessage;
@@ -14,6 +16,7 @@ public class ConfigManager {
     private String dragonFightStartedMessage;
     private String dragonFightParticipationMessage;
     private int dragonFightStartDelay;
+    List<String> dragonFightRewards;
 
     public ConfigManager(DragonFight plugin) {
         this.plugin = plugin;
@@ -34,6 +37,7 @@ public class ConfigManager {
         dragonDeathMessage = plugin.getConfig().getString("Dragon-Death-Message", "The Ender Dragon has been slain.");
         dragonFightParticipationMessage = plugin.getConfig().getString("Dragon-Fight-Participation-Message", "For you participation you have been rewarded 12000 xp.");
         dragonFightStartDelay = plugin.getConfig().getInt("Dragon-Fight-Start-Delay", 6000);
+        dragonFightRewards = plugin.getConfig().getStringList("Dragon-Fight-Rewards");
     }
 
     public String getDragonDenyDamageMessage() {
@@ -62,5 +66,9 @@ public class ConfigManager {
 
     public int getDragonFightStartDelay() {
         return dragonFightStartDelay;
+    }
+
+    public List<String> getDragonFightRewards() {
+        return dragonFightRewards;
     }
 }
