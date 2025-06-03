@@ -3,8 +3,10 @@ package com.github.sirmonkeyboy.dragonFight.Utils;
 import com.github.sirmonkeyboy.dragonFight.DragonFight;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,7 +43,7 @@ public class DragonFightSession {
         this.isActive = false;
         this.endTime = System.currentTimeMillis();
         Utils.announcement(Component.text(configManager.getDragonDeathMessage()).color(NamedTextColor.WHITE));
-        rewards();
+        dragonFightRewards();
     }
 
     public long getDuration() {
@@ -83,12 +85,18 @@ public class DragonFightSession {
         clearParticipants();
     }
 
-    public void rewards() {
+    public void dragonFightRewards() {
         getParticipants().forEach(participants -> {
            Player player = plugin.getServer().getPlayer(participants);
             if (player != null) {
                 player.sendMessage(Component.text(configManager.getDragonFightParticipationMessage()));
-                player.giveExp(12000);
+                List<String> rewardsList = configManager.getDragonFightRewards();
+                if (rewardsList != null && !rewardsList.isEmpty()) {
+                    for (String rewards : rewardsList) {
+                        rewards = rewards.replace("%Player%", player.getName());
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), rewards);
+                    }
+                }
             }
         });
     }
