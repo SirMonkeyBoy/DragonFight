@@ -4,7 +4,6 @@ import com.github.sirmonkeyboy.dragonFight.Utils.ConfigManager;
 import com.github.sirmonkeyboy.dragonFight.Utils.Utils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
