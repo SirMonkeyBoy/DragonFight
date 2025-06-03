@@ -49,7 +49,6 @@ public class DragonFightCommand implements CommandExecutor, TabCompleter {
                                 dragonFightSession.startSession();
                             }
                         }.runTaskLater(plugin, configManager.getDragonFightStartDelay());
-                        commandSender.sendMessage("Usage: /dragonfight enable <true|false>");
                         return true;
                     }
                     case "stop" -> {
