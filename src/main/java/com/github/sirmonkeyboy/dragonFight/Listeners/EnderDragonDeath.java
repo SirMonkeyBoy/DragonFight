@@ -17,6 +17,7 @@ public class EnderDragonDeath implements Listener {
     @EventHandler
     public void dragonDeath(EntityDeathEvent event) {
         if (!(event.getEntity() instanceof EnderDragon)) return;
+        if (dragonFightSession.getHasHappened()) return;
         dragonFightSession.endSession();
     }
 }
