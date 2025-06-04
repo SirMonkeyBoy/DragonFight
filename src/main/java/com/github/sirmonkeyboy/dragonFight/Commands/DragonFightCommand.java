@@ -3,9 +3,6 @@ package com.github.sirmonkeyboy.dragonFight.Commands;
 import com.github.sirmonkeyboy.dragonFight.DragonFight;
 import com.github.sirmonkeyboy.dragonFight.Utils.ConfigManager;
 import com.github.sirmonkeyboy.dragonFight.Utils.DragonFightSession;
-import com.github.sirmonkeyboy.dragonFight.Utils.Utils;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,11 +39,15 @@ public class DragonFightCommand implements CommandExecutor, TabCompleter {
             case 1 -> {
                 switch (args[0].toLowerCase()) {
                     case "start" -> {
+                        if (dragonFightSession.isStarting()) {
+                            commandSender.sendMessage("Dragon fight is already starting.");
+                            return true;
+                        }
                         if (dragonFightSession.isActive()) {
                             commandSender.sendMessage("Dragon fight is already active.");
                             return true;
                         }
-                        Utils.announcement(Component.text(configManager.getDragonFightStartingInMessage()).color(NamedTextColor.WHITE));
+                        dragonFightSession.startingSession();
                         new BukkitRunnable() {
                             @Override
                             public void run() {
@@ -56,7 +57,11 @@ public class DragonFightCommand implements CommandExecutor, TabCompleter {
                         return true;
                     }
                     case "stop" -> {
-                        dragonFightSession.endSession();
+                        boolean success = dragonFightSession.stopSession();
+                        if (!success) {
+                            commandSender.sendMessage("No dragon fight was started");
+                            return true;
+                        }
                         commandSender.sendMessage("Dragon fight has ended.");
                         return true;
                     }
@@ -78,7 +83,6 @@ public class DragonFightCommand implements CommandExecutor, TabCompleter {
                     }
                     case "reload" -> {
                         configManager.reloadConfigManager(commandSender);
-                        commandSender.sendMessage(Component.text("Config successfully reloaded").color(NamedTextColor.GREEN));
                         return true;
                     }
                 }
