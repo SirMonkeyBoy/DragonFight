@@ -15,6 +15,8 @@ public class DragonFightSession {
     private final DragonFight plugin;
     private final ConfigManager configManager;
     private boolean isActive;
+    private boolean isStarting;
+    private boolean hasHappened;
     private long startTime;
     private long endTime;
     private Set<UUID> participants;
@@ -29,21 +31,53 @@ public class DragonFightSession {
         this.participants = ConcurrentHashMap.newKeySet();
     }
 
+    public boolean isStarting() {
+        return isStarting;
+    }
+
     public boolean isActive() {
         return isActive;
     }
 
+    public boolean getHasHappened() {
+        return hasHappened;
+    }
+
+    public void startingSession() {
+        this.hasHappened = false;
+        this.isStarting = true;
+        Utils.announcement(Component.text(configManager.getDragonFightStartingInMessage()).color(NamedTextColor.WHITE));
+    }
+
     public void startSession() {
+        if (!this.isStarting) return;
         this.isActive = true;
         this.startTime = System.currentTimeMillis();
         Utils.announcement(Component.text(configManager.getDragonFightStartedMessage()).color(NamedTextColor.WHITE));
+        this.isStarting = false;
     }
 
     public void endSession() {
         this.isActive = false;
+        this.hasHappened = true;
         this.endTime = System.currentTimeMillis();
         Utils.announcement(Component.text(configManager.getDragonDeathMessage()).color(NamedTextColor.WHITE));
         dragonFightRewards();
+    }
+
+    public boolean stopSession() {
+        if (this.isStarting) {
+            this.isStarting = false;
+            Utils.announcement(Component.text("The Dragon Fight is canceled").color(NamedTextColor.WHITE));
+            return true;
+        }
+        if (this.isActive) {
+            this.isActive = false;
+            this.endTime = System.currentTimeMillis();
+            Utils.announcement(Component.text("The Dragon fight has been stopped"));
+            return true;
+        }
+        return false;
     }
 
     public long getDuration() {
@@ -79,7 +113,9 @@ public class DragonFightSession {
     }
 
     public void resetSession() {
+        this.isStarting = false;
         this.isActive = false;
+        this.hasHappened = false;
         this.startTime = 0;
         this.endTime = 0;
         clearParticipants();
