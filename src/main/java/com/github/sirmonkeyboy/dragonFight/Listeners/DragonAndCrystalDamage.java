@@ -33,6 +33,8 @@ public class DragonAndCrystalDamage implements Listener {
 
         if (!(event.getEntity() instanceof EnderDragon)) return;
 
+        if (dragonFightSession.getHasHappened()) return;
+
         event.setCancelled(true);
 
         if (event.getDamager() instanceof Player player) {
@@ -56,6 +58,8 @@ public class DragonAndCrystalDamage implements Listener {
         }
 
         if (!(event.getEntity() instanceof EnderCrystal)) return;
+
+        if (dragonFightSession.getHasHappened()) return;
 
         event.setCancelled(true);
 
