@@ -11,11 +11,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-public class DragonAndCrystalDamage implements Listener {
+public class DragonAndCrystalDamageListener implements Listener {
     private final ConfigManager configManager;
     private final DragonFightSession dragonFightSession;
 
-    public DragonAndCrystalDamage(ConfigManager configManager, DragonFightSession dragonFightSession) {
+    public DragonAndCrystalDamageListener(ConfigManager configManager, DragonFightSession dragonFightSession) {
         this.configManager = configManager;
         this.dragonFightSession = dragonFightSession;
     }

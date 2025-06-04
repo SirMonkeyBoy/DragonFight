@@ -7,10 +7,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 
 
-public class EnderDragonDeath implements Listener {
+public class EnderDragonDeathListener implements Listener {
     private final DragonFightSession dragonFightSession;
 
-    public EnderDragonDeath(DragonFightSession dragonFightSession) {
+    public EnderDragonDeathListener(DragonFightSession dragonFightSession) {
         this.dragonFightSession = dragonFightSession;
     }
 

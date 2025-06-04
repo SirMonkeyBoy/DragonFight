@@ -1,8 +1,8 @@
 package com.github.sirmonkeyboy.dragonFight;
 
 import com.github.sirmonkeyboy.dragonFight.Commands.DragonFightCommand;
-import com.github.sirmonkeyboy.dragonFight.Listeners.DragonAndCrystalDamage;
-import com.github.sirmonkeyboy.dragonFight.Listeners.EnderDragonDeath;
+import com.github.sirmonkeyboy.dragonFight.Listeners.DragonAndCrystalDamageListener;
+import com.github.sirmonkeyboy.dragonFight.Listeners.EnderDragonDeathListener;
 import com.github.sirmonkeyboy.dragonFight.Utils.ConfigManager;
 import com.github.sirmonkeyboy.dragonFight.Utils.DragonFightSession;
 import org.bukkit.Bukkit;
@@ -22,8 +22,8 @@ public final class DragonFight extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("DragonFight")).setExecutor(new DragonFightCommand(this, configManager, dragonFightSession));
 
-        Bukkit.getPluginManager().registerEvents(new DragonAndCrystalDamage(configManager, dragonFightSession), this);
-        Bukkit.getPluginManager().registerEvents(new EnderDragonDeath(dragonFightSession), this);
+        Bukkit.getPluginManager().registerEvents(new DragonAndCrystalDamageListener(configManager, dragonFightSession), this);
+        Bukkit.getPluginManager().registerEvents(new EnderDragonDeathListener(dragonFightSession), this);
 
         getLogger().info("Dragon Fight started");
     }
