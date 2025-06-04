@@ -1,11 +1,11 @@
 # DragonFight
 
 Commands:
-- `dragonfight`: Will give you a list of subcommands.
-  - `dragonfight start`: will start the fight.
-  - `dragonfight stop`: will stop the fight.
-  - `dragonfight list-participants`: Will give you a list of players who have damaged the End Dragon or End Crystals.
-  - `dragonfight reset`: Reset all data and stop the fight.
+- `dragonfight`: Displays a list of subcommands.
+  - `dragonfight start`: Starts the fight.
+  - `dragonfight stop`: Stops the fight.
+  - `dragonfight list-participants`: List of players who have damaged the Ender Dragon or End Crystals.
+  - `dragonfight reset`: Reset all data and stops the fight.
   - `dragonfight reload`: Reloads the config file.
 
 # TODO
